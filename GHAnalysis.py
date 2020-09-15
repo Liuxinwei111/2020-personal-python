@@ -8,3 +8,24 @@ def run():
     my_parser.add_argument('-r', '--repo', help='repository name')
     my_parser.add_argument('-e', '--event', help='type of event')
     args = my_parser.parse_args()
+
+    if args.init:
+        my_data = data.Data(path=args.init)
+    else:
+        my_data = data.Data()
+        if args.event:
+            if args.user:
+                if args.repo:
+                    print(my_data.get_cnt_user_and_repo(args.user, args.repo, args.event))
+                else:
+                    print(my_data.get_cnt_user(args.user, args.event))
+            else:
+                if args.repo:
+                    print(my_data.get_cnt_repo(args.repo, args.event))
+                else:
+                    print("lock of parm")
+        else:
+            print("lack: event")
+            
+if __name__ == '__main__':
+    run()
