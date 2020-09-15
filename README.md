@@ -1,3 +1,3 @@
 # 2020-personal-python
 
-请修改 README
+我叫刘新伟，我爱学习，冲冲冲！！！
